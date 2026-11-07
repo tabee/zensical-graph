@@ -1,0 +1,54 @@
+/* zensical-graph: widget styles. Colours come from CSS custom properties so
+   a theme can restyle the graph without touching the plugin:
+     --zg-palette  comma-separated node colours (groups or link count)
+     --zg-link / --zg-link-active / --zg-label / --zg-halo / --zg-bg
+   Defaults follow the Zensical/Material theme variables. */
+.zg {
+  --zg-palette: var(--md-accent-fg-color, #ff79c6), #8be9fd, #bd93f9, #50fa7b, #ffb86c, #6ea8fe;
+  --zg-link: color-mix(in srgb, var(--md-default-fg-color, #e6e6e6) 28%, transparent);
+  --zg-link-active: var(--md-accent-fg-color, #ff79c6);
+  --zg-label: var(--md-default-fg-color, #e6e6e6);
+  --zg-halo: var(--md-default-bg-color, #0f1115);
+  --zg-bg: var(--md-code-bg-color, #161a22);
+  --zg-border: color-mix(in srgb, var(--md-default-fg-color, #e6e6e6) 15%, transparent);
+  position: relative;
+  margin: 1em 0;
+}
+.zg-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6em 1.2em;
+  align-items: center;
+  margin-bottom: .6em;
+  font-size: .75rem;
+}
+.zg-controls input[type="search"],
+.zg-controls input[type="number"] {
+  background: var(--zg-bg);
+  color: var(--zg-label);
+  border: 1px solid var(--zg-border);
+  border-radius: .3em;
+  padding: .35em .6em;
+  font: inherit;
+}
+.zg-controls input[type="search"] { min-width: 14em; }
+.zg-controls input[type="number"] { width: 4.5em; }
+.zg-controls input:focus { outline: 1px solid var(--zg-link-active); }
+.zg-controls button {
+  background: transparent;
+  color: var(--zg-link-active);
+  border: 1px solid var(--zg-link-active);
+  border-radius: .3em;
+  padding: .3em .8em;
+  font: inherit;
+  cursor: pointer;
+}
+.zg-canvas {
+  height: 70vh;
+  min-height: 22rem;
+  background: var(--zg-bg);
+  border: 1px solid var(--zg-border);
+  border-radius: .4em;
+  overflow: hidden;
+}
+.zg-legend { font-size: .7rem; opacity: .75; margin-top: .4em; }

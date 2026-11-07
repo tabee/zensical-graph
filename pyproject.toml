@@ -1,0 +1,23 @@
+[project]
+name = "zensical-graph"
+version = "0.2.0"
+description = "Obsidian-style interactive knowledge graph for Zensical / MkDocs sites"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Your Name", email = "you@example.com" }
+]
+dependencies = [
+  "zensical>=0.0.70",
+]
+
+[project.entry-points."zensical.plugins"]
+graph = "zensical_graph:GraphPlugin"
+
+[project.entry-points."mkdocs.plugins"]
+graph = "zensical_graph:GraphPlugin"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

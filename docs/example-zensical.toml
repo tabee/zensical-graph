@@ -1,0 +1,26 @@
+# Minimal example configuration for a Zensical project
+
+[project]
+site_name = "My Docs"
+docs_dir = "docs"
+
+# Plugins as tables only: a list ("plugins = [...]") plus a table
+# [project.plugins.graph] is invalid TOML (key declared twice).
+[project.plugins.search]
+
+# Zensical ignores this table (no third-party plugin API yet); it is read by
+# the post-build step: python -m zensical_graph -f zensical.toml
+[project.plugins.graph]
+enabled = true
+page_path = "graph/"
+title = "Knowledge Graph"
+min_links = 0
+include_orphans = true
+mentions = false
+# UI language: "en" or "de"; empty = theme language (fallback English)
+language = ""
+# Embedded mode: create docs/graph.md with <div id="zensical-graph"></div>
+# (page URL = page_path); otherwise a stand-alone page is written.
+
+[project.theme]
+variant = "modern"
